@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div ref="content">
         <menuhead/>
         <main class="mx-auto container">
             <Nuxt/>
@@ -9,10 +9,13 @@
 <script>
 import menuhead from '@/components/menu.vue'
 import Vue from 'vue'
+import global from '../mixins/global' 
 export default Vue.extend({
     name:'default',
     components: { menuhead },
 
+
+    
     
 })
 </script>
