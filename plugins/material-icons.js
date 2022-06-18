@@ -6,9 +6,10 @@ import arrowLeft from 'vue-material-design-icons/chevronLeft.vue'
 import arrowRight from 'vue-material-design-icons/chevronRight.vue'
 import loading from 'vue-material-design-icons/loading.vue'
 
+
 Vue.component('close', Close);
 Vue.component('exit', Exit);
 Vue.component('back', Back);
 Vue.component('arrow-left', arrowLeft);
 Vue.component('arrow-right', arrowRight);
-Vue.component('loading', loading);
+Vue.component('load', loading);

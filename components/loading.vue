@@ -1,6 +1,6 @@
 <template>
     <div class="w-screen h-screen flex items-center justify-center bg-white opacity-75 z-50 fixed top-0 left-0">
-        <p class="flex">Carregando... <loading class="animate animate-spin"/></p>
+        <p class="flex">Loading... <load class="animate animate-spin"/></p>
     </div>
 </template>
 <script>

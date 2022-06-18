@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <transition-group name="fade" tag="div" class="flex flex-wrap -m-4">
-      <card v-for="character in characters" :key="character.name" :character="character" v-on:openModalCard="openModal"/>
+      <card v-for="(character,index) in characters" :key="character.name" :character="character" v-on:openModalCard="openModal" :ind="index"/>
     </transition-group>
     <paginate :page="page" :totalPages="totalPages" :totalCharacters="totalCharacters" v-on:attPageEmit="attPage" v-show="characters" />
   </div>
@@ -61,15 +61,20 @@ export default Vue.extend({
       this.characters = []
       this.search()
     },
-    openModal(){
-      this.$refs.modal.openModal()
+    openModal(ind){
+      this.$refs.modal.openModal(ind + 1,this.page)
     }
     
   },
   created(){
     if(this.$route.query.page){
-        this.page = this.$route.query.page
-      }
+      this.page = this.$route.query.page
+    }
+  },
+  mounted(){
+     if(this.$route.query.people){
+      this.openModal(this.$route.query.people)
+    }
   }
 })
 </script>
