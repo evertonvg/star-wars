@@ -3,7 +3,7 @@
         <div class="fixed w-screen h-screen  top-0 left-0 bg-black opacity-90 flex items-center justify-center" v-show="showModal" @click.self="closeModal">
             <div class="rounded-md bg-white h-auto w-9/12 relative overflow-hidden p-3 sm:p-20">
                 <close fill="#302E53" title="botão de fechar modal" class="absolute top-3 right-3 md:top-4 md:right-4 cursor-pointer" @click="closeModal"/>
-                <p class="text-center flex items-center justify-center" v-show="people=='' || starships.length!=people.starships.length">
+                <p class="text-center flex items-center justify-center" v-show="(people=='' || starships.length!=people.starships.length) && showWarn==''">
                     Loading... <load class="animate animate-spin"/>
                 </p>
                 <p class="text-center" v-show="showWarn!=''">
@@ -45,19 +45,21 @@ export default {
             this.lastURL = pg
             this.showModal = true
             if(!this.$route.query.people){
-               await this.$router.replace({ path: '/', query: { people: ind }}) 
+               await this.$router.replace({ path: '/', query: { people: ind.replace(/[^0-9]/g,'') }}) 
             }
-            this.callPeople(ind)
+            this.callPeople(ind.replace(/[^0-9]/g,''))
         },
         closeModal(){
             this.$router.replace({ path: '/', query: { page: this.lastURL }})
             this.people=''
             this.starships = []
             this.showModal = false
+            document.title = 'Star Wars API - Página '+ this.lastURL
         },
         callPeople(ind){
             this.$axios.$get('people/'+ind)
             .then((res)=>{
+                document.title = 'Star Wars API - '+ res.name
                 this.showWarn = ''
                 this.people = res
                 this.callStarships(res)

@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <transition-group name="fade" tag="div" class="flex flex-wrap -m-4">
-      <card v-for="(character,index) in characters" :key="character.name" :character="character" v-on:openModalCard="openModal" :ind="index"/>
+      <card v-for="character in characters" :key="character.name" :character="character" v-on:openModalCard="openModal" :ind="character.url"/>
     </transition-group>
     <paginate :page="page" :totalPages="totalPages" :totalCharacters="totalCharacters" v-on:attPageEmit="attPage" v-show="characters" />
   </div>
@@ -16,7 +16,6 @@
 import Vue from 'vue'
 import card from '@/components/card.vue'
 import paginate from '@/components/paginate.vue'
-import character from '@/typings/character'
 import global from '../mixins/global'
 import modal from '@/components/modal.vue'
 export default Vue.extend({
@@ -62,7 +61,7 @@ export default Vue.extend({
       this.search()
     },
     openModal(ind){
-      this.$refs.modal.openModal(ind + 1,this.page)
+      this.$refs.modal.openModal(ind,this.page)
     }
     
   },
@@ -75,6 +74,9 @@ export default Vue.extend({
      if(this.$route.query.people){
       this.openModal(this.$route.query.people)
     }
+     if(this.$route.query.page){
+        document.title = 'Star Wars API - Página '+ this.$route.query.page
+     }
   }
 })
 </script>

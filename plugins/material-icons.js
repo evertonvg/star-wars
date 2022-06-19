@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import Close from 'vue-material-design-icons/close.vue'
-import Exit from 'vue-material-design-icons/exitToApp.vue'
-import Back from 'vue-material-design-icons/arrowLeftCircle.vue'
-import arrowLeft from 'vue-material-design-icons/chevronLeft.vue'
-import arrowRight from 'vue-material-design-icons/chevronRight.vue'
-import loading from 'vue-material-design-icons/loading.vue'
+import Close from 'vue-material-design-icons/Close.vue'
+import Exit from 'vue-material-design-icons/ExitToApp.vue'
+import Back from 'vue-material-design-icons/ArrowLeftCircle.vue'
+import arrowLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import arrowRight from 'vue-material-design-icons/ChevronRight.vue'
+import loading from 'vue-material-design-icons/Loading.vue'
 
 
 Vue.component('close', Close);

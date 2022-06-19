@@ -81,6 +81,7 @@ export default Vue.extend({
             this.attPage =  this.totalPages
         }
         this.$router.replace({ path: '/', query: { page: this.attPage }})
+        document.title = 'Star Wars API - Página '+ this.attPage
         this.$emit('attPageEmit',this.attPage)
         
       }

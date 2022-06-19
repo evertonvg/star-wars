@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'starWars',
+    title: 'Star Wars API',
     htmlAttrs: {
       lang: 'en'
     },
@@ -26,7 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/material-icons.js',
+    '@/plugins/material-icons.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -56,6 +56,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    standalone:true
+    // standalone:true
   }
 }
